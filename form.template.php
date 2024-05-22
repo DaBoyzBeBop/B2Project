@@ -42,8 +42,8 @@ Entrez les coordonn&eacute;es du point de r&eacute;f&eacute;rence :
 
 	<br /><br />
 
-	<input type="hidden" name="boulegue" value="true" />
-	<input type="submit" value="Boul&egrave;gues !!!" />
+	<input type="hidden" name="ok" value="true" />
+	<input type="submit" value="OK" />
 
 </form>
 

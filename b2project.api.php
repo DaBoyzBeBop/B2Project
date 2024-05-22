@@ -1,14 +1,11 @@
 <?php
 
 /*******************************************************
- * 
  * B2 Project aka "GoogleEarth vs TontonMi" : API
  *
- * => http://www.movable-type.co.uk/scripts/latlong.html (les formules qui vont bien)
- * => http://williams.best.vwh.net/avform.htm (pour être complet sur le sujet)
+ * => http://www.movable-type.co.uk/scripts/latlong.html
  *
- * @author DaBoyzBeBop <daboyzbebop@gmail.com>
- *
+ * @author vfourastie <vfourastie@gmail.com>
  *******************************************************/
 
 class B2Project
@@ -23,11 +20,12 @@ class B2Project
 	var $XML;
 
 	/*********************************************
-	 * Met à jour les coordonnées du point de référence et autres petites choses issues du formulaire
+	 * Met à jour les coordonnées du point de référence 
+	 * et autres petites choses issues du formulaire
  	 *********************************************/
 	public function setInitialDataFromForm()
 	{
-		if (isset($_POST["boulegue"]))
+		if (isset($_POST["ok"]))
 		{
 			$this->RefLat["Card"] = $_POST["LatNS"];
 			$this->RefLat["Deg"] = (int) $_POST["LatDeg"];
@@ -51,7 +49,7 @@ class B2Project
 
 			$this->Balise = $_POST["Balise"];
 
-			// conversion du rayon en distance angulaire en radian
+			// conversion du rayon (en mètre) en distance angulaire (en radian)
 			$this->dR = deg2rad(($this->Rayon/1000)/6371);			
 		}
 	}

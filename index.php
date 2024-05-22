@@ -1,17 +1,15 @@
 <?php
 
 /*******************************************************
- *
  * B2 Project aka "GoogleEarth vs TontonMi"
  *
- * @author DaBoyzBeBop <daboyzbebop@gmail.com>
- *
+ * @author vfourastie <vfourastie@gmail.com>
  *******************************************************/
 
 require_once('b2project.api.php');
 
-// faut d'abord valider le formulaire avec les données idoines
-if (!isset($_POST["boulegue"]))
+// il faut d'abord valider le formulaire avec les données idoines
+if (!isset($_POST["ok"]))
 {
 	// d'où qu'on part ?
 	include_once('form.template.php');
@@ -29,7 +27,7 @@ else
 		. $b2->getRefLatDegToString() . "&nbsp;&nbsp;" 
 		. $b2->getRefLonDegToString() . "&nbsp;&nbsp;"
 		. "(" . $b2->RefLat["Dec"] . ",&nbsp;" . $b2->RefLon["Dec"] .")";
-	echo "<br /><br />";
+	echo "<br /><br />";	
 	echo "Rayon = " . $b2->Rayon . "&nbsp;m";
 	echo "<br /><br />";
 	echo "Altitude = " . $b2->Altitude . "&nbsp;m";
@@ -37,7 +35,7 @@ else
 	echo $b2->NbPoints . " points ont &eacute;t&eacute; g&eacute;n&eacute;r&eacute;s.";
 	echo "<br /><br />";
 
-	// on affiche le résultat du bousin
+	// on affiche le résultat
 	echo "XML :<br /><br />";
 
 	echo $b2->getXMLToDisplay();
@@ -45,9 +43,9 @@ else
 	echo "<br /><br />";
 
 	// encore ?
-	unset($_POST["boulegue"]);
+	unset($_POST["ok"]);
 	echo "<form action=\"index.php\" method=\"post\">";
-	echo "<input type=\"submit\" value=\"Encore !!!\" />";
+	echo "<input type=\"submit\" value=\"Encore\" />";
 	echo "</form>";
 }
 
